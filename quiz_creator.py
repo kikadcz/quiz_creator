@@ -59,6 +59,7 @@ def saving_to_file(data, bong_sound):
 
 def main():
 
+    bong_sound = init_sound()
 
     while True:
         data = get_question_and_choices()
