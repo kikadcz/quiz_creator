@@ -53,3 +53,6 @@ def saving_to_file(data, bong_sound):
             for letter, choice in data['choices'].items():
                 file.write(f"({letter}) {choice}\n")
             file.write(f"\nAnswer: {data['correct_answer']}\n{'-'*30}\n")
+
+        if bong_sound:
+            bong_sound.play()
