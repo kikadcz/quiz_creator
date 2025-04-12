@@ -33,4 +33,8 @@ def get_question_and_choices():
         for letter in ['a', 'b', 'c', or 'd']:
             choices[letter] = input("{Fore.CYAN}Choice {letter}: ")
 
-
+        while True:
+            correct_answer = input(Fore.LIGHTMAGENTA_EX + "Correct answer: ").lower()
+            if correct_answer in ['a', 'b', 'c', or 'd']:
+                break
+            print(Fore.RED + "Please enter a, b, c, or d.")
