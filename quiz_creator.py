@@ -10,13 +10,12 @@ def print_header():
         ascii_art = pyfiglet.figlet_format("QUIZZATRON 3000", font="doom")
         print(Fore.RED + ascii_art)
 
-
 def init_sound():
         pygame.mixer.init()
         try:
             pygame.mixer.music.load("bg_music.mp3")
             pygame.mixer.music.play(-1)
-            bong_sound = pygame.mixer.sound("bong.mp3")
+            bong_sound = pygame.mixer.sound("bong.wav")
             return bong_sound
 
         except Exception as e:
