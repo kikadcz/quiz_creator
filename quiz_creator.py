@@ -45,3 +45,11 @@ def get_question_and_choices():
             'correct_answer' : correct_answer
 
         }
+
+def saving_to_file(data, bong_sound):
+        filename = "quiz_questions.txt"
+        with open(filename, "a", encoding='utf-8') as file:
+            file.write(f"\nQuestion:\n{data['question']}\n")
+            for letter, choice in data['choices'].items():
+                file.write(f"({letter}) {choice}\n")
+            file.write(f"\nAnswer: {data['correct_answer']}\n{'-'*30}\n")
