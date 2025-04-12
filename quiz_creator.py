@@ -15,7 +15,8 @@ def init_sound():
         try:
             pygame.mixer.music.load("bg_music.mp3")
             pygame.mixer.music.play(-1)
-            bong_sound = pygame.mixer.sound("bong.wav")
+
+            bong_sound = pygame.mixer.Sound("bong.wav")
             return bong_sound
 
         except Exception as e:
@@ -32,7 +33,7 @@ def get_question_and_choices():
 
         choices = {}
         for letter in ['a', 'b', 'c', 'd']:
-            choices[letter] = input("{Fore.CYAN}Choice {letter}: ")
+            choices[letter] = input(f"{Fore.CYAN}Choice {letter}: ")
 
         while True:
             correct_answer = input(Fore.LIGHTMAGENTA_EX + "Correct answer: ").lower()
@@ -59,7 +60,7 @@ def saving_to_file(data, bong_sound):
             bong_sound.play()
 
 def main():
-
+    print_header()
     bong_sound = init_sound()
 
     while True:
@@ -68,7 +69,7 @@ def main():
             print(Fore.YELLOW + "Thanks for using Quizzatron 3000!")
             break
 
-        saving_to_file(data)
+        saving_to_file(data, bong_sound)
         print(Fore.GREEN + "Question saved successfully.")
 
 
