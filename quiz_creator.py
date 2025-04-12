@@ -6,7 +6,7 @@ import pyfiglet
 init(autoreset=True)
 
 
-def print_header():
+#def print_header():
 
 
 def init_sound():
@@ -28,3 +28,9 @@ def get_question_and_choices():
         question = input(Fore.GREEN + "Enter your quiz question: ")
         if question.lower() == 'exit':
             return None
+
+        choices = {}
+        for letter in ['a', 'b', 'c', or 'd']:
+            choices[letter] = input("{Fore.CYAN}Choice {letter}: ")
+
+
