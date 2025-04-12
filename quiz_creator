@@ -21,3 +21,10 @@ def init_sound():
             print(Fore.RED + f"\nWarning: Sound initialization failed ({str(e)}). "
                                     "Continuing without sound effects. ")
 
+        return None
+
+def get_question_and_choices():
+        print("Type 'exit' to quit.")
+        question = input(Fore.GREEN + "Enter your quiz question: ")
+        if question.lower() == 'exit':
+            return None
