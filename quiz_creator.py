@@ -1,13 +1,12 @@
-import os
 import pygame
-from colorama import init, Fore, Style
+from colorama import init, Fore
 import pyfiglet
 
 init(autoreset=True)
 
 
 def print_header():
-        ascii_art = pyfiglet.figlet_format("QUIZZATRON 3000", font="doom")
+        ascii_art = pyfiglet.figlet_format("QUIZZATRON 3000", font="doom", justify="left", width=240)
         print(Fore.RED + ascii_art)
 
 def init_sound():
