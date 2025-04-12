@@ -6,7 +6,9 @@ import pyfiglet
 init(autoreset=True)
 
 
-#def print_header():
+def print_header():
+        ascii_art = pyfiglet.figlet_format("QUIZZATRON 3000", font="doom")
+        print(Fore.RED + ascii_art)
 
 
 def init_sound():
