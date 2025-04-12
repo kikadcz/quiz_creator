@@ -3,3 +3,14 @@ import pygame
 from colorama import init, Fore, Style
 import pyfiglet
 
+init(autoreset=True)
+
+
+def print_header():
+
+
+def init_sound():
+        pygame.mixer.init()
+        try:
+            pygame.mixer.music.load("bg_music.mp3")
+            pygame.mixer.music.play(-1)
