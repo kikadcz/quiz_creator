@@ -69,3 +69,7 @@ def main():
 
         saving_to_file(data)
         print(Fore.GREEN + "Question saved successfully.")
+
+
+if __name__ == "__main__":
+    main()
