@@ -56,3 +56,15 @@ def saving_to_file(data, bong_sound):
 
         if bong_sound:
             bong_sound.play()
+
+def main():
+
+
+    while True:
+        data = get_question_and_choices()
+        if data is None:
+            print(Fore.YELLOW + "Thanks for using Quizzatron 3000!")
+            break
+
+        saving_to_file(data)
+        print(Fore.GREEN + "Question saved successfully.")
