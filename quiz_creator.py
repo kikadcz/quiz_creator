@@ -18,8 +18,8 @@ def init_sound():
             bong_sound = pygame.mixer.Sound("bong.wav")
             return bong_sound
 
-        except Exception as e:
-            print(Fore.RED + f"\nWarning: Sound initialization failed ({str(e)}). "
+        except Exception as audio_error:
+            print(Fore.RED + f"\nWarning: Sound initialization failed ({str(audio_error)}). "
                                     "Continuing without sound effects. ")
 
         return None
