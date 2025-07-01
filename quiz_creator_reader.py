@@ -5,6 +5,8 @@ import re
 
 from typing import List, Dict, Optional
 
+from pygame.examples.aliens import load_sound
+
 init(autoreset=True)
 
 def load_sounds() -> tuple[Optional][pygame.mixer.Sound], Optional[pygame.mixer.Sound]]:
@@ -60,4 +62,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    print(f"{Fore.LIGHTBLUE_EX}\n Welcome to Quizzatron 3000: Game Saga")
+    questions = parse_quiz()
+    correct_sound, wrong_sound = load_sounds()
+    run_quiz(questions, correct_sound, wrong_sound)
