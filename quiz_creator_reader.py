@@ -1,19 +1,17 @@
+import random
 import pygame
 from colorama import init, Fore
-import pyfiglet
-4
+import re
+
+from typing import List, Dict, Optional
+
 init(autoreset=True)
 
-
-def print_header():
-        ascii_art = pyfiglet.figlet_format("QUIZZATRON 3000", font="doom", justify="left", width=240)
-        print(Fore.RED + ascii_art)
-
-def init_sound():
-        pygame.mixer.init()
+def load_sounds() -> tuple[Optional][pygame.mixer.Sound], Optional[pygame.mixer.Sound]]:
         try:
-            pygame.mixer.music.load("bg_music.mp3")
-            pygame.mixer.music.play(-1)
+            pygame.mixer.init()
+            return (pygame.mixer.Sound("correct.wav"),
+                    pygame.mixer.Sound("wrong.wav")
 
             bong_sound = pygame.mixer.Sound("bong.wav")
             return bong_sound
