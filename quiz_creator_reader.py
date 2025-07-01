@@ -26,7 +26,13 @@ def parse_quiz(filename: str = "quiz_questions.txt") -> List[Dict]
                    'options': dict(zip('ABCD',
                         [re.search(rf'\({letter}\)\s(.+)')], block.split('\n')[index]).group(1)
                          for letter, index in zip('ABCD', range(2, 6))]),
-               }]
+                    'correct': re.search(r'Answer:\s*([ABCD])', block.split('\n')[6].group(1)
+               } for block in block if block.strip()]
+       except Exception as error:
+           print(f"{Fore.RED}Error parsing quiz file: {error}")
+           return[]
+
+
 
 def saving_to_file(data, bong_sound):
         filename = "quiz_questions.txt"
