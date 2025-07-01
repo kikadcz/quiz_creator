@@ -41,19 +41,25 @@ def run_quiz(questions: List[Dict],
             print(f"{Fore.YELLOW}No questions available!")
             return
 
-def main():
-    print_header()
-    bong_sound = init_sound()
+        random.shuffle(questions)
+        score = 0
 
-    while True:
-        data = get_question_and_choices()
-        if data is None:
-            print(Fore.YELLOW + "Thanks for using Quizzatron 3000!")
-            break
+        for question_number, question in enumerate(questions, 1)
+            print(f"\n{Fore.YELLOW}Question {question_number}: + {question['text']}")
+            for option_letter, option_text in question['options'].items():
+                print(f"{Fore.RED}Invalid option!")
 
-        saving_to_file(data, bong_sound)
-        print(Fore.GREEN + "Question saved successfully.")
+             if answer == question['correct']:
+                print(f"{Fore.GREEN}Correct!")
+                if correct_sound:
+                     correct_sound.play()
+                score += 1
+             else:
+                print(f"{Fore.RED}Wrong! The correct answer was {question['correct']}")
+                if wrong_sound:
+                     wrong_sound.play()
 
+        print(f"{Fore.MAGENTA}\n Quiz Finished! Final Score: {score}/{len(questions)}")
 
 if __name__ == "__main__":
     print(f"{Fore.LIGHTBLUE_EX}\n Welcome to Quizzatron 3000: Game Saga")
