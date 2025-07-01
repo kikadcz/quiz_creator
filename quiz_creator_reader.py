@@ -13,14 +13,9 @@ def load_sounds() -> tuple[Optional][pygame.mixer.Sound], Optional[pygame.mixer.
             return (pygame.mixer.Sound("correct.wav"),
                     pygame.mixer.Sound("wrong.wav")
 
-            bong_sound = pygame.mixer.Sound("bong.wav")
-            return bong_sound
-
-        except Exception as audio_error:
-            print(Fore.RED + f"\nWarning: Sound initialization failed ({str(audio_error)}). "
-                                    "Continuing without sound effects. ")
-
-        return None
+        except Exception as error:
+            print(f"{Fore.RED}Sound Error: {error}")
+            return None, None
 
 def get_question_and_choices():
         print("Type 'exit' to quit.")
