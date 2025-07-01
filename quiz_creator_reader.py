@@ -25,6 +25,7 @@ def parse_quiz(filename: str = "quiz_questions.txt") -> List[Dict]
                    'text': block.split('\n')[1].strip()
                    'options': dict(zip('ABCD',
                         [re.search(rf'\({letter}\)\s(.+)')], block.split('\n')[index]).group(1)
+                         for letter, index in zip('ABCD', range(2, 6))]),
                }]
 
 def saving_to_file(data, bong_sound):
