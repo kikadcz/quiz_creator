@@ -34,18 +34,12 @@ def parse_quiz(filename: str = "quiz_questions.txt") -> List[Dict]
            print(f"{Fore.RED}Error parsing quiz file: {error}")
            return[]
 
-
-
-def saving_to_file(data, bong_sound):
-        filename = "quiz_questions.txt"
-        with open(filename, "a", encoding='utf-8') as file:
-            file.write(f"\nQuestion:\n{data['question']}\n")
-            for letter, choice in data['choices'].items():
-                file.write(f"({letter}) {choice}\n")
-            file.write(f"\nAnswer: {data['correct_answer']}\n{'-'*30}\n")
-
-        if bong_sound:
-            bong_sound.play()
+def run_quiz(questions: List[Dict],
+             correct_sound: Optional[pygame.mixer.Sound]
+             wrong_sound: Optional[pygame.mixer.Sound])
+        if not questions:
+            print(f"{Fore.YELLOW}No questions available!")
+            return
 
 def main():
     print_header()
