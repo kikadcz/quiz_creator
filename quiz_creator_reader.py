@@ -17,28 +17,15 @@ def load_sounds() -> tuple[Optional][pygame.mixer.Sound], Optional[pygame.mixer.
             print(f"{Fore.RED}Sound Error: {error}")
             return None, None
 
-def get_question_and_choices():
-        print("Type 'exit' to quit.")
-        question = input(Fore.GREEN + "Enter your quiz question: ")
-        if question.lower() == 'exit':
-            return None
-
-        choices = {}
-        for letter in ['a', 'b', 'c', 'd']:
-            choices[letter] = input(f"{Fore.CYAN}Choice {letter}: ")
-
-        while True:
-            correct_answer = input(Fore.LIGHTMAGENTA_EX + "Correct answer: ").lower()
-            if correct_answer in ['a', 'b', 'c', 'd']:
-                break
-            print(Fore.RED + "Please enter a, b, c, or d.")
-
-        return {
-            'question' : question,
-            'choices'  : choices,
-            'correct_answer' : correct_answer
-
-        }
+def parse_quiz(filename: str = "quiz_questions.txt") -> List[Dict]
+       try:
+           with open(filename, encoding="utf-8") as file:
+               blocks = file.read().strip().slip('-' * 30)
+               return [{
+                   'text': block.split('\n')[1].strip()
+                   'options': dict(zip('ABCD',
+                        [re.search(rf'\({letter}\)\s(.+)')], block.split('\n')[index]).group(1)
+               }]
 
 def saving_to_file(data, bong_sound):
         filename = "quiz_questions.txt"
